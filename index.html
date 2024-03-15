@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube UI Clone</title>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="bars">
+          <img src="icons/bars.svg" alt="bars" />
+        </div>
+        <div class="side_icons">
+          <i>
+            <img src="icons/home.svg" alt="Home" />
+          </i>
+          <p>Home</p>
+        </div>
+        <div class="side_icons">
+          <i>
+            <img src="icons/compass.svg" alt="Explore" />
+          </i>
+          <p>Explore</p>
+        </div>
+        <div class="side_icons">
+          <i>
+            <img src="icons/video-gallary.svg" alt="Subscriptions" />
+          </i>
+          <p>Subscriptions</p>
+        </div>
+        <div class="side_icons">
+          <i>
+            <img src="icons/video-library.svg" alt="Library" />
+          </i>
+          <p>Library</p>
+        </div>
+      </aside>
+      <div class="main_container">
+        <header>
+          <nav>
+            <div class="logo_container">
+              <img src="images/youtube-logo.png" alt="Youtube Logo" />
+            </div>
+            <div class="center_nav">
+              <input type="text" />
+              <button>
+                <img src="icons/search.svg" alt="search" />
+              </button>
+              <img src="icons/mic.svg" alt="Microphone" id="mic" />
+            </div>
+            <div class="side_nav">
+              <img src="icons/video-add.svg" alt="Video Add" />
+              <img src="icons/dot-grid.svg" alt="Dots" />
+              <img src="icons/bell.svg" alt="Bell" />
+              <img src="images/avatar.png" alt="Avatar" />
+            </div>
+          </nav>
+          <div class="tag_container">
+            <div class="tag dark">All</div>
+            <div class="tag light">Mixes</div>
+            <div class="tag light">Crypto</div>
+            <div class="tag light">HTML</div>
+            <div class="tag light">CSS</div>
+          </div>
+        </header>
+        <main>
+          <div class="card_container">
+            <div class="card">
+                <img src="images/thumbnail.png" alt="Thumbnail" />
+              <div class="avatar_container">
+                <div>
+
+                  <img src="images/avatar.png" alt="Avatar" />
+                </div>
+                <div class="title_container">
+                  <h3>Chakra UI Complete Course Hindi</h3>
+                  <h5>Do Some Coding</h5>
+                  <h6>10 Cr Views 1 Day Ago</h6>
+                </div>
+                <div class="dots">
+                  <i>
+                    <img src="icons/dots.svg" alt="Dots" />
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  <script>
+  const cardsData = [
+    { 
+      thumbnail: 'images/thumbnail.png',
+      avatar: 'images/avatar.png',
+      title: 'Card 1 Title',
+      subtitle: 'Card 1 Subtitle',
+      views: '10 Cr Views 1 Day Ago'
+    }
+  ];
+
+  function createCard(cardData) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+      <img src="${cardData.thumbnail}" alt="Thumbnail" />
+      <div class="avatar_container">
+        <div>
+          <img src="${cardData.avatar}" alt="Avatar" />
+        </div>
+        <div class="title_container">
+          <h3>${cardData.title}</h3>
+          <h5>Do Some Coding</h5>
+          <h5>${cardData.subtitle}</h5>
+          <h6>${cardData.views}</h6>
+        </div>
+        <div class="dots">
+          <i>
+            <img src="icons/dots.svg" alt="Dots" />
+          </i>
+        </div>
+      </div>
+    `;
+
+    return card;
+  }
+
+  const cardContainer = document.querySelector('.card_container');
+
+  for (let i = 1; i <= 30; i++) {
+    console.log("Number: " + i);
+    cardsData.forEach((data) => {
+      const cardElement = createCard(data);
+      cardContainer.appendChild(cardElement);
+    });
+  }
+</script>
+  </body>
+</html>
